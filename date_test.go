@@ -20,3 +20,19 @@ func TestParse(t *testing.T) {
 		return
 	}
 }
+
+func TestOffset(t *testing.T) {
+	_, err := DateUtils.Offset(time.Now(), "-24")
+	if err != nil {
+		t.Errorf("offset day failed, %s", err.Error())
+		return
+	}
+}
+
+func TestSubDays(t *testing.T) {
+	n := DateUtils.SubDays(time.Now(), time.Now())
+	if n != 0 {
+		t.Error("value must be 0")
+		return
+	}
+}

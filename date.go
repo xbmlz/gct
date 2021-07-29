@@ -2,6 +2,7 @@ package gct
 
 import (
 	"errors"
+	"fmt"
 	"time"
 )
 
@@ -36,4 +37,63 @@ func (td *TDate) Parse(dateStr, format string) (time.Time, error) {
 		return time.Time{}, errors.New("unsupported format")
 	}
 	return time.Parse(formatMap[format], dateStr)
+}
+
+// Offset 时间偏移
+func (td *TDate) Offset(date time.Time, format string) (time.Time, error) {
+	pd, err := time.ParseDuration(format)
+	if err != nil {
+		return date, err
+	}
+	return date.Add(pd), nil
+}
+
+// OffsetDay 时间日期偏移
+func (td *TDate) OffsetDay(date time.Time, day int) (time.Time, error) {
+	return td.Offset(date, fmt.Sprintf("%dh", day*24))
+}
+
+// OffsetHour 按小时偏移
+func (td *TDate) OffsetHour(date time.Time, hour int) (time.Time, error) {
+	return td.Offset(date, fmt.Sprintf("%dh", hour))
+}
+
+// OffsetMinute 按分钟偏移
+func (td *TDate) OffsetMinute(date time.Time, minute int) (time.Time, error) {
+	return td.Offset(date, fmt.Sprintf("%dm", minute))
+}
+
+// OffsetSecond 按秒偏移
+func (td *TDate) OffsetSecond(date time.Time, second int) (time.Time, error) {
+	return td.Offset(date, fmt.Sprintf("%ds", second))
+}
+
+// OffsetMillisecond 按毫秒偏移
+func (td *TDate) OffsetMillisecond(date time.Time, ms int) (time.Time, error) {
+	return td.Offset(date, fmt.Sprintf("%dms", ms))
+}
+
+// SubDays 日期差
+func (td *TDate) SubDays(date1, date2 time.Time) int {
+	return int(date1.Sub(date2).Hours() / 24)
+}
+
+// SubHours 小时差
+func (td *TDate) SubHours(date1, date2 time.Time) int {
+	return int(date1.Sub(date2).Hours())
+}
+
+// SubMinutes 分钟差
+func (td *TDate) SubMinutes(date1, date2 time.Time) int {
+	return int(date1.Sub(date2).Minutes())
+}
+
+// SubSeconds 秒差
+func (td *TDate) SubSeconds(date1, date2 time.Time) int {
+	return int(date1.Sub(date2).Seconds())
+}
+
+// SubMilliseconds 毫秒差
+func (td *TDate) SubMilliseconds(date1, date2 time.Time) int {
+	return int(date1.Sub(date2).Milliseconds())
 }

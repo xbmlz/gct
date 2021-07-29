@@ -51,6 +51,36 @@ s, err := DateUtils.Format(time.Now(), "yyyy-MM-dd")
 t, err := DateUtils.Parse("2006-01-02", "yyyy-MM-dd")
 ```
 
+日期时间偏移
+
+```go
+// 按天偏移
+t, err := DateUtils.OffsetDay(time.Now(), -2)
+// 按小时偏移
+t, err := DateUtils.OffsetHour(time.Now(), -2)
+// 按分钟偏移
+t, err := DateUtils.OffsetMinute(time.Now(), -2)
+// 按秒偏移
+t, err := DateUtils.OffsetSecond(time.Now(), -2)
+// 按毫秒偏移
+t, err := DateUtils.OffsetMillisecond(time.Now(), -2)
+```
+
+日期时间差
+
+```go
+// SubDays 日期差
+days := DateUtils.SubDays(time.Now(), time.Now()) // n=0
+// SubHours 小时差
+hours := DateUtils.SubHours(time.Now(), time.Now()) // n=0
+// SubMinutes 分钟差
+minutes := DateUtils.SubMinutes(time.Now(), time.Now()) // n=0
+// SubSeconds 秒差
+seconds := DateUtils.SubSeconds(time.Now(), time.Now()) // n=0
+// SubMilliseconds 毫秒差
+milliseconds := DateUtils.SubMilliseconds(time.Now(), time.Now()) // n=0
+```
+
 #### 文件操作
 
 将字符串写入文件，追加模式
