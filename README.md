@@ -81,12 +81,19 @@ seconds := DateUtils.SubSeconds(time.Now(), time.Now()) // n=0
 milliseconds := DateUtils.SubMilliseconds(time.Now(), time.Now()) // n=0
 ```
 
+年龄
+
+```go
+// 根据身份证号计算年龄
+age := DateUtils.AgeOfIDCard("123456199501170016") // 26
+```
+
 星座和属相
 
 ```go
 // 星座
 zodiac := DateUtils.GetZodiac(1, 17) // 摩羯座
-//属相
+// 属相
 chineseZodiac := DateUtils.GetChineseZodiac(1995) // 猪
 ```
 

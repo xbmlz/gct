@@ -52,3 +52,11 @@ func TestGetChineseZodiac(t *testing.T) {
 		return
 	}
 }
+
+func TestAgeOfIDCard(t *testing.T) {
+	age := DateUtils.AgeOfIDCard("123456199501170016")
+	if age != 26 {
+		t.Error("value must be 26")
+		return
+	}
+}

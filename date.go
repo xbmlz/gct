@@ -3,6 +3,7 @@ package gct
 import (
 	"errors"
 	"fmt"
+	"strconv"
 	"time"
 )
 
@@ -124,6 +125,20 @@ func (td *TDate) GetChineseZodiac(year int) string {
 }
 
 // AgeOfIDNumber 根据身份证号计算年龄
-func (td *TDate) AgeOfIDCard() int {
-	return 0
+func (td *TDate) AgeOfIDCard(num string) int {
+	// TODO 正则验证
+	now := time.Now()
+	nowYear := int(now.Year())
+	nowMonth := int(now.Month())
+	nowDay := int(now.Day())
+
+	year, _ := strconv.Atoi(num[6:10])
+	month, _ := strconv.Atoi(num[10:12])
+	day, _ := strconv.Atoi(num[12:14])
+
+	if (month < nowMonth) || (month == nowMonth && day <= nowDay) {
+		return nowYear - year
+	} else {
+		return nowYear - year - 1
+	}
 }
