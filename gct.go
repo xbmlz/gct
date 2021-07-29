@@ -1,9 +1,13 @@
 package gct
 
 type (
-	TFile byte
+	TDate   byte
+	TFile   byte
+	TString byte
 )
 
 var (
-	FileUtils TFile
+	DateUtils   TDate
+	FileUtils   TFile
+	StringUtils TString
 )
