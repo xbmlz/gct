@@ -22,7 +22,7 @@ func TestParse(t *testing.T) {
 }
 
 func TestOffset(t *testing.T) {
-	_, err := DateUtils.Offset(time.Now(), "-24")
+	_, err := DateUtils.Offset(time.Now(), "-24h")
 	if err != nil {
 		t.Errorf("offset day failed, %s", err.Error())
 		return
