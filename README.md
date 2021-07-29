@@ -81,6 +81,15 @@ seconds := DateUtils.SubSeconds(time.Now(), time.Now()) // n=0
 milliseconds := DateUtils.SubMilliseconds(time.Now(), time.Now()) // n=0
 ```
 
+星座和属相
+
+```go
+// 星座
+zodiac := DateUtils.GetZodiac(1, 17) // 摩羯座
+//属相
+chineseZodiac := DateUtils.GetChineseZodiac(1995) // 猪
+```
+
 #### 文件操作
 
 将字符串写入文件，追加模式

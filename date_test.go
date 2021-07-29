@@ -36,3 +36,19 @@ func TestSubDays(t *testing.T) {
 		return
 	}
 }
+
+func TestGetZodiac(t *testing.T) {
+	zodiac := DateUtils.GetZodiac(1, 17)
+	if zodiac != "摩羯座" {
+		t.Error("value must be 摩羯座")
+		return
+	}
+}
+
+func TestGetChineseZodiac(t *testing.T) {
+	chineseZodiac := DateUtils.GetChineseZodiac(1995)
+	if chineseZodiac != "猪" {
+		t.Error("value must be 猪")
+		return
+	}
+}
