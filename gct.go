@@ -1,9 +1,9 @@
 package gct
 
 type (
-	File byte
+	TFile byte
 )
 
 var (
-	FileUtils File
+	FileUtils TFile
 )
