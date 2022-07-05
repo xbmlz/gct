@@ -18,3 +18,37 @@ func TestExist(t *testing.T) {
 		return
 	}
 }
+
+func TestRemoveSuffix(t *testing.T) {
+	var tests = []struct {
+		param    string
+		expected string
+	}{
+		{"file.go", "file"},
+		{"file.Go", "file"},
+		{"file.tar.gz", "file.tar"},
+	}
+	for _, test := range tests {
+		actual := FileUtils.RemoveSuffix(test.param)
+		if actual != test.expected {
+			t.Errorf("%s must be %s", test.param, test.expected)
+		}
+	}
+}
+
+func TestRemovePrefix(t *testing.T) {
+	var tests = []struct {
+		param    string
+		expected string
+	}{
+		{"file.go", "go"},
+		{"file.Go", "Go"},
+		{"file.tar.gz", "gz"},
+	}
+	for _, test := range tests {
+		actual := FileUtils.RemovePrefix(test.param)
+		if actual != test.expected {
+			t.Errorf("%s must be %s", test.param, test.expected)
+		}
+	}
+}
