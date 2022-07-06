@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/viodo/gct/branch/master/graph/badge.svg)](https://codecov.io/gh/viodo/gct)
 [![Code Size](https://img.shields.io/github/languages/code-size/viodo/gct.svg?style=flat-square)](https://github.com/viodo/gct)
 
-### 安装使用
+## 安装使用
 
 安装
 
@@ -18,9 +18,9 @@ go get -u github.com/viodo/gct
 ```go
 import . "github.com/viodo/gct"
 ```
-### 功能
+## 功能
 
-#### 日期时间操作
+### 日期时间操作
 
 支持的常用格式
 
@@ -97,7 +97,7 @@ zodiac := DateUtils.GetZodiac(1, 17) // 摩羯座
 chineseZodiac := DateUtils.GetChineseZodiac(1995) // 猪
 ```
 
-#### 文件操作
+### 文件操作
 
 将字符串写入文件，追加模式
 
@@ -111,7 +111,31 @@ f, err := FileUtils.AppendString("test content", "E:/test.txt")
 is := FileUtils.Exist("E:/test.txt")
 ```
 
-#### 字符串操作
+移除后缀名
+
+```go
+s := FileUtils.RemoveSuffix("main.go") // main.go -> main
+```
+
+移除前缀
+
+```go
+s := FileUtils.RemovePrefix("main.go") // main.go -> go
+```
+
+压缩zip
+
+```go
+err := FileUtils.Zip("./testdata/archive.zip", "./testdata/csv", "./testdata/file.txt")
+```
+
+解压zip
+
+```go
+err := FileUtils.Unzip("./testdata/archive.zip", "./testdata/unzip")
+```
+
+### 字符串操作
 
 判断字符串是否为空
 

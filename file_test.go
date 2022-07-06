@@ -52,3 +52,19 @@ func TestRemovePrefix(t *testing.T) {
 		}
 	}
 }
+
+func TestZip(t *testing.T) {
+	err := FileUtils.Zip("./testdata/archive.zip", "./testdata/csv", "./testdata/file.txt")
+	if err != nil {
+		t.Error("zip error")
+		return
+	}
+}
+
+func TestUnzip(t *testing.T) {
+	err := FileUtils.Unzip("./testdata/archive.zip", "./testdata/unzip")
+	if err != nil {
+		t.Error("unzip error")
+		return
+	}
+}

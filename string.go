@@ -40,13 +40,3 @@ func (ts *TString) IsBlankOrEmpty(str string) bool {
 func (ts *TString) IsNotBlankOrEmpty(str string) bool {
 	return !ts.IsBlankOrEmpty(str)
 }
-
-// IsBlankOrEmptyOrNull 是否空白或空字符串或空指针.
-func (ts *TString) IsBlankOrEmptyOrNull(str string) bool {
-	return ts.IsBlankOrEmpty(str) || str == ""
-}
-
-// IsNotBlankOrEmptyOrNull 是否非空白或非空字符串或非空指针.
-func (ts *TString) IsNotBlankOrEmptyOrNull(str string) bool {
-	return !ts.IsBlankOrEmptyOrNull(str)
-}
