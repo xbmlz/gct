@@ -1,22 +1,22 @@
 # Golang Common Tools
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/viodo/gct)](https://goreportcard.com/report/github.com/viodo/gct)
-[![Build Status](https://github.com/viodo/gct/workflows/gct-test/badge.svg)](https://github.com/viodo/gct/actions)
-[![codecov](https://codecov.io/gh/viodo/gct/branch/master/graph/badge.svg)](https://codecov.io/gh/viodo/gct)
-[![Code Size](https://img.shields.io/github/languages/code-size/viodo/gct.svg?style=flat-square)](https://github.com/viodo/gct)
+[![Go Report Card](https://goreportcard.com/badge/github.com/xbmlz/gct)](https://goreportcard.com/report/github.com/xbmlz/gct)
+[![Build Status](https://github.com/xbmlz/gct/workflows/gct-test/badge.svg)](https://github.com/xbmlz/gct/actions)
+[![codecov](https://codecov.io/gh/xbmlz/gct/branch/master/graph/badge.svg)](https://codecov.io/gh/xbmlz/gct)
+[![Code Size](https://img.shields.io/github/languages/code-size/xbmlz/gct.svg?style=flat-square)](https://github.com/xbmlz/gct)
 
 ## 安装使用
 
 安装
 
 ```shell
-go get -u github.com/viodo/gct
+go get -u github.com/xbmlz/gct
 ```
 
 使用
 
 ```go
-import . "github.com/viodo/gct"
+import . "github.com/xbmlz/gct"
 ```
 ## 功能
 
