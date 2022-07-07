@@ -3,8 +3,9 @@
 <a title="Build Status" target="_blank" href="https://github.com/xbmlz/gct/actions/workflows/main.yml"><img src="https://img.shields.io/github/workflow/status/xbmlz/gct/GoTest?style=flat-square"></a>
 <a title="GoDoc" target="_blank" href="https://godoc.org/github.com/xbmlz/gct"><img src="http://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square"></a>
 <a title="Go Report Card" target="_blank" href="https://goreportcard.com/report/github.com/xbmlz/gct"><img src="https://goreportcard.com/badge/github.com/xbmlz/gct?style=flat-square"></a>
-<a title="Coverage Status" target="_blank" href="https://coveralls.io/github/xbmlz/gct"><img src="https://img.shields.io/coveralls/github/xbmlz/gct.svg?style=flat-square&color=CC9933"></a>
+<a href='https://coveralls.io/github/xbmlz/gct?branch=master'><img src='https://coveralls.io/repos/github/xbmlz/gct/badge.svg?branch=master' alt='Coverage Status' /></a>
 <a title="Code Size" target="_blank" href="https://github.com/xbmlz/gct"><img src="https://img.shields.io/github/languages/code-size/xbmlz/gct.svg?style=flat-square"></a>
+<a title="MulanPSL2 License" target="_blank" href="https://github.com/xbmlz/gct/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MulanPSL2-orange.svg?style=flat-square"></a>
 </p>
 
 ## 安装使用

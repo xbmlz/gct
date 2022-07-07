@@ -254,7 +254,3 @@ func (tf *TFile) UnGzip(src, dest string) error {
 	}
 	return nil
 }
-
-func IsDirExists(destName string) {
-	panic("unimplemented")
-}
