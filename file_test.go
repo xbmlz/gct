@@ -11,10 +11,18 @@ func TestAppendString(t *testing.T) {
 	}
 }
 
-func TestExist(t *testing.T) {
+func TestIsFileExists(t *testing.T) {
 	path := "./file.go"
-	if !FileUtils.Exist(path) {
+	if !FileUtils.IsFileExists(path) {
 		t.Error("file.go must exist")
+		return
+	}
+}
+
+func TestIsDirExists(t *testing.T) {
+	dir := "./testdata"
+	if !FileUtils.IsDirExists(dir) {
+		t.Error("dir must exist")
 		return
 	}
 }
@@ -63,6 +71,22 @@ func TestZip(t *testing.T) {
 
 func TestUnzip(t *testing.T) {
 	err := FileUtils.Unzip("./testdata/archive.zip", "./testdata/unzip")
+	if err != nil {
+		t.Error("unzip error")
+		return
+	}
+}
+
+func TestGzip(t *testing.T) {
+	err := FileUtils.Gzip("./testdata/archive.tar.gz", "./testdata/csv", "./testdata/file.txt")
+	if err != nil {
+		t.Error("tar error")
+		return
+	}
+}
+
+func TestUnGzip(t *testing.T) {
+	err := FileUtils.UnGzip("./testdata/archive.tar.gz", "./testdata/gzip")
 	if err != nil {
 		t.Error("unzip error")
 		return
