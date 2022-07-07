@@ -1,9 +1,13 @@
-# Golang Common Tools
-
-[![Go Report Card](https://goreportcard.com/badge/github.com/xbmlz/gct)](https://goreportcard.com/report/github.com/xbmlz/gct)
-[![Build Status](https://github.com/xbmlz/gct/workflows/gct-test/badge.svg)](https://github.com/xbmlz/gct/actions)
-[![codecov](https://codecov.io/gh/xbmlz/gct/branch/master/graph/badge.svg)](https://codecov.io/gh/xbmlz/gct)
-[![Code Size](https://img.shields.io/github/languages/code-size/xbmlz/gct.svg?style=flat-square)](https://github.com/xbmlz/gct)
+<p align = "center">
+<br><br>
+<h1>Golang Common Tools</h1>
+<br><br>
+<a title="Build Status" target="_blank" href="https://github.com/xbmlz/gct/actions/workflows/test.yml"><img src="https://img.shields.io/github/workflow/status/xbmlz/gct/Go%20Test?style=flat-square"></a>
+<a title="GoDoc" target="_blank" href="https://godoc.org/github.com/xbmlz/gct"><img src="http://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square"></a>
+<a title="Go Report Card" target="_blank" href="https://goreportcard.com/report/github.com/xbmlz/gct"><img src="https://goreportcard.com/badge/github.com/xbmlz/gct?style=flat-square"></a>
+<a title="Coverage Status" target="_blank" href="https://coveralls.io/github/xbmlz/gct"><img src="https://img.shields.io/coveralls/github/xbmlz/gct.svg?style=flat-square&color=CC9933"></a>
+<a title="Code Size" target="_blank" href="https://github.com/xbmlz/gct"><img src="https://img.shields.io/github/languages/code-size/xbmlz/gct.svg?style=flat-square"></a>
+</p>
 
 ## 安装使用
 

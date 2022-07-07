@@ -1,84 +1,25 @@
-name: gct-test
-
-on:
-  push:
-    tags:
-      - v*
-    branches:
-      - master
-      - release
-  pull_request:
-    branches: [ master ]
-
+name: Go Test
+on: [ push, pull_request ]
 jobs:
-  lint:
-    name: Lint
-    strategy:
-      matrix:
-        go-version: [ 1.16.x, 1.17.x, 1.18.x ]
-        os: [ ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
+  test:
+    name: Test with Coverage
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@v2
-        with:
-          version: v1.29
-          args: --issues-exit-code=0 --timeout=10m
-
-  test-unix:
-    name: TestUnix
-    needs: Lint
-    strategy:
-      matrix:
-        go-version: [ 1.16.x, 1.17.x, 1.18.x ]
-        os: [ ubuntu-latest, macos-latest ]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Install Go
+      - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: ${{ matrix.go-version }}
-
-      - name: Checkout code
+          go-version: '1.17'
+      - name: Check out code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-
-      - name: Test
-        run: go mod vendor && go test -v -mod=mod -race -coverprofile=coverage.txt -covermode=atomic
-
-      - name: Upload coverage to Codecov
-        run: bash <(curl -s https://codecov.io/bash)
-
-  test-win:
-    name: TestWindows
-    needs: Lint
-    strategy:
-      matrix:
-        go-version: [ 1.16.x, 1.17.x, 1.18.x ]
-        os: [ windows-latest ]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.go-version }}
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-
-      - name: Test
-        run: go mod vendor && go test -v -mod=mod -race -coverprofile=coverageout -covermode=atomic
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          files: coverageout
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false # optional (default = false)
-          verbose: true # optional (default = false)
+      - name: Install dependencies
+        run: |
+          go mod download
+      - name: Run Unit tests
+        run: |
+          go test -coverprofile=covprofile -coverpkg="github.com/xbmlz/gct" ./...
+      - name: Install goveralls
+        run: go install github.com/mattn/goveralls@latest
+      - name: Send coverage
+        env:
+          COVERALLS_TOKEN: ${{ secrets.ACTION_TOKEN }}
+        run: goveralls -coverprofile=covprofile -service=github
